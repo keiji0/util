@@ -54,7 +54,7 @@ PR.registerLangHandler(
       [PR.PR_STRING, /^(?:\"(?:[^\"\\]|\\[\s\S])*(?:\"|$))/, null, '"']
     ],
     [
-      [PR.PR_COMMENT, /^(?:\/\/[^\r\n]*|\([\s\S]*?\))/],
+      [PR.PR_COMMENT, /^(?:\/\/[^\r\n]*|\( [\s\S]*?\))/],
       [PR.PR_STRING,  /^(\[(=*)\[[\s\S]*?(?:\]\1\]|$))|(:\s+\S+)/],
       [PR.PR_KEYWORD, /^(?:def|immediate|if|unless|else|then|postpone|begin|until|defer|defer!|case|endcase|of|endof|default|return|do|while|repeat|again|loop|\+loop|val|const|variable|var)\b/, null],
       [PR.PR_LITERAL, /^[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?))/i],
