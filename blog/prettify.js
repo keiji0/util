@@ -57,8 +57,8 @@ PR.registerLangHandler(
       [PR.PR_COMMENT, /^(?:\/\/[^\r\n]*|\( [\s\S]*?\))/],
       [PR.PR_STRING,  /^(\[(=*)\[[\s\S]*?(?:\]\1\]|$))|(:\s+\S+)/],
       [PR.PR_KEYWORD, /^(?:def|immediate|if|unless|else|then|postpone|begin|until|defer|defer!|case|endcase|of|endof|default|return|do|while|repeat|again|loop|\+loop|val|const|variable|var)\b/, null],
-      [PR.PR_LITERAL, /^[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?))/i],
-      [PR.PR_PLAIN, /^[a-z_]\w*/i],
+      [PR.PR_LITERAL, /^(?:[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?)))|(?:\'(?:-*(?:\w|\\[\x21-\x7e])(?:[\w-]*|\\[\x21-\x7e])[=!?]?)?)/i],
+      [PR.PR_PLAIN, /^[^\w\t\n\r \xA0]+/],
       [PR.PR_PUNCTUATION, /^[^\w\t\n\r \xA0]+/],
     ]),
   ['forth']);
