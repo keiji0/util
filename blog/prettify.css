@@ -1,0 +1,11 @@
+.str { color: #4e9a06; }
+.kwd { color: #3465a4; font-weight:bold; }
+.com { color: #a40000; }
+.typ { color: #5c3566; }
+.lit { color: #8f5902; }
+.pun { color: #660; }
+.pln { color: #000; }
+.tag { color: #008; }
+.atn { color: #606; }
+.atv { color: #080; }
+.dec { color: #606; }
