@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+if [ -z $ZMEMO_DIR ]; then
+    echo 'error: 環境変数「$ZMEMO_DIR」が設定されていません' &>2
+    exit 0
+fi
+
+if [ ! -x $ZMEMO_DIR ]; then
+	  mkdir -p $ZMEMO_DIR
+fi
+
+METHOD=default
+while getopts ed OPT; do
+    case $OPT in
+        "e")
+            METHOD=edit;;
+        "d")
+            METHOD=delete;;
+    esac
+done
+
+shift `expr $OPTIND - 1`
+NAME=$1
+
+if [ -z $NAME ]; then
+    echo 'error: 対象名を入力して下さい' &>2
+    exit 0
+fi
+
+case $METHOD in
+    "edit")
+        autoload zed
+        zed $ZMEMO_DIR/$NAME;;
+    "delete")
+        rm $ZMEMO_DIR/$NAME;;
+    *)
+        cat $ZMEMO_DIR/$NAME;;
+esac

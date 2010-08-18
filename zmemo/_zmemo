@@ -1,0 +1,2 @@
+#compdef zmemo
+_files -W $ZMEMO_DIR
