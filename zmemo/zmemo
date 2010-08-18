@@ -10,8 +10,16 @@ if [ ! -x $ZMEMO_DIR ]; then
 fi
 
 METHOD=default
-while getopts ed OPT; do
+while getopts hed OPT; do
     case $OPT in
+        "h")
+            echo 'Usage:
+  zmemo [-edh] name
+options:
+  -e 指定のメモを編集
+  -d 指定メモを削除
+  -h ヘルプを表示'
+            exit 0;;
         "e")
             METHOD=edit;;
         "d")
