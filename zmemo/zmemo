@@ -35,12 +35,21 @@ if [ -z $NAME ]; then
     exit 0
 fi
 
+function edit() {
+    autoload zed
+    zed $1;
+}
+
+FILE=$ZMEMO_DIR/$NAME
 case $METHOD in
     "edit")
-        autoload zed
-        zed $ZMEMO_DIR/$NAME;;
+        edit $FILE;;
     "delete")
-        rm $ZMEMO_DIR/$NAME;;
+        rm $FILE;;
     *)
-        cat $ZMEMO_DIR/$NAME;;
+        if [ -e $FILE ]; then
+            cat $FILE
+        else
+            edit $FILE
+        fi;;
 esac
